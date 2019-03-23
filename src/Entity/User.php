@@ -26,6 +26,37 @@ class User extends BaseUser
     private $quotations;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Business", inversedBy="users")
+     */
+    private $business;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Independent", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $independent;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $firstName;
+
+    /**
+     * @return mixed
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param mixed $firstName
+     */
+    public function setFirstName($firstName): void
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -65,6 +96,36 @@ class User extends BaseUser
             if ($quotation->getUser() === $this) {
                 $quotation->setUser(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getBusiness(): ?Business
+    {
+        return $this->business;
+    }
+
+    public function setBusiness(?Business $business): self
+    {
+        $this->business = $business;
+
+        return $this;
+    }
+
+    public function getIndependent(): ?Independent
+    {
+        return $this->independent;
+    }
+
+    public function setIndependent(?Independent $independent): self
+    {
+        $this->independent = $independent;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newUser = $independent === null ? null : $this;
+        if ($newUser !== $independent->getUser()) {
+            $independent->setUser($newUser);
         }
 
         return $this;
