@@ -5,3 +5,6 @@ fos_user:
     from_email:
         address: "jereboyer@hotmail.fr"
         sender_name: "JB"
+    registration:
+            form:
+                type: App\Form\RegistrationType
