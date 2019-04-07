@@ -1,10 +1,25 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<h1>Inscription avant devis</h1>
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-<div>
-    <input class="btn btn-primary" type="submit" value="{{ 'registration.submit'|trans }}" />
-</div>
-{{ form_end(form) }}
+{% block fos_user_content %}
+
+    <h1>Inscription avant devis</h1>
+
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+        {{ form_row(form.email, {"label" : "Adresse email"}, {"label_attr" : {"class" : "form-control"}}) }}
+
+        {{ form_row(form.firstName, {"label" : "Prénom"}) }}
+
+        {{ form_row(form.username, {"label" : "Nom"}) }}
+
+        {{ form_row(form.plainPassword, {"label" : "Confirmation de mot de passe"}) }}
+
+        <div>
+            <input class="btn btn-primary" type="submit" value="{{ 'registration.submit'|trans }}" />
+        </div>
+
+    {{ form_end(form) }}
+
+{% endblock fos_user_content %}

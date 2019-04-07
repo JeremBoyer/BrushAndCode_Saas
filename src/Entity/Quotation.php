@@ -66,6 +66,11 @@ class Quotation
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $Email;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -187,6 +192,18 @@ class Quotation
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->Email;
+    }
+
+    public function setEmail(string $Email): self
+    {
+        $this->Email = $Email;
 
         return $this;
     }

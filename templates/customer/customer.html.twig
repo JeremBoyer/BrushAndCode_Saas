@@ -1,9 +1,15 @@
-{% extends 'base.html.tswig' %}
+{% extends 'base.html.twig' %}
+
+{% form_theme quotationForm 'bootstrap_4_layout.html.twig' %}
 
 {% block title %} BrushAndCode {% endblock %}
 
 {% block body %}
 
-    Blablalababa
+    {{ form_start(quotationForm) }}
+
+        {{ form_row(quotationForm.comment) }}
+
+    {{ form_end(quotationForm) }}
 
 {% endblock %}
