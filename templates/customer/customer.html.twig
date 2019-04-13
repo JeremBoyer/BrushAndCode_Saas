@@ -6,9 +6,121 @@
 
 {% block body %}
 
+    <h1> Nos services </h1>
+    <h2> Les formules </h2>
+    <div class="container">
+        <div class="col-3">
+
+            <div class="card border-info">
+
+                <div class="card-header">
+
+                    <h3>Base</h3>
+                    <br>
+                    <p>Best seller</p>
+
+                </div>
+
+                <div class="card-body">
+                    <ul>
+                        <li>Création d'un site vitrine (5pages maximum + pages légales)</li>
+                        <li>Module SEO pour gérer votre référencement</li>
+                        <li>Design simple : Intégration de votre logo et template</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-9">
+            <div class="card border-danger">
+                <div class="card-header">
+                    <h3>Sur mesure</h3>
+                    <br>
+                    <p>Gestion de projet classique ou agile</p>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="col-md-4">
+                            <h4>Marketing</h4>
+                            <ul>
+                                <li>Content Marketing</li>
+                                <li>Search Engin Marketing</li>
+                                <li>Social Media Marketing</li>
+                                <li>Email Marketing</li>
+                                <li>Search Engine</li>
+                                <li>Optimisation</li>
+                                <li>Audit web</li>
+                                <li>Stratégie marketing digital</li>
+                                <li>Formation WordPress</li>
+                                <li>Traduction web (Français et Anglais)</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Design</h4>
+                            <ul>
+                                <li><strong>Design graphique/web</strong></li>
+                                <li>UX/UI design</li>
+                                <li>Mobile Responsive design</li>
+                            </ul>
+                            <ul>
+                                <li><strong>Identité Corporative (Print)</strong></li>
+                                <li>Entête de lettres</li>
+                                <li>Cartes de visites</li>
+                                <li>Chartes graphiques</li>
+                            </ul>
+                            <ul>
+                                <li><strong>Conception de Logo</strong></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Développement</h4>
+                            <ul>
+                                <li>Création de site vitrine Premium</li>
+                                <li>Création de site e-commerce</li>
+                                <li>Site personnalisé avec WordPress</li>
+                                <li>Site sur mesure avec Symfony</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
     {{ form_start(quotationForm) }}
 
+        {{ form_row(quotationForm.email) }}
+        {#<div class="{{ quotationForm.vars.label }}">#}
+            {#<div>#}
+                {#<input type="checkbox" id="{{ quotationForm.packageType.vars.form.0.vars.id }}" name="{{ quotationForm.packageType.vars.form.0.vars.name }}">#}
+                {#<label for="{{ quotationForm.packageType.vars.form.0.vars.id }}">Base</label>#}
+            {#</div>#}
+            {#<div>#}
+                {#<input type="checkbox" id="{{ quotationForm.packageType.vars.form.1.vars.id }}" name="{{ quotationForm.packageType.vars.form.1.vars.name }}">#}
+                {#<label for="{{ quotationForm.packageType.vars.form.1.vars.id }}">Marketing</label>#}
+            {#</div>#}
+            {#<div>#}
+                {#<input type="checkbox" id="{{ quotationForm.packageType.vars.form.2.vars.id }}" name="{{ quotationForm.packageType.vars.form.2.vars.name }}">#}
+                {#<label for="{{ quotationForm.packageType.vars.form.2.vars.id }}">Design</label>#}
+            {#</div>#}
+            {#<div>#}
+                {#<input type="checkbox" id="{{ quotationForm.packageType.vars.form.3.vars.id }}" name="{{ quotationForm.packageType.vars.form.3.vars.name }}">#}
+                {#<label for="{{ quotationForm.packageType.vars.form.3.vars.id }}">Development</label>#}
+            {#</div>#}
+        {#</div>#}
+    {#quotationForm.packageType.vars.choices.0#}
+        {{ form_label(quotationForm.packageType) }}
+        {{ form_errors(quotationForm.packageType) }}
+        {{ form_widget(quotationForm.packageType) }}
+
         {{ form_row(quotationForm.comment) }}
+        {#{{ dump(quotationForm.packageType.vars.form.0) }}#}
+
+
+        <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
 
     {{ form_end(quotationForm) }}
 

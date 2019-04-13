@@ -9,6 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Quotation
 {
+    const BASE = 1;
+    const MARKETING = 2;
+    const DESIGN = 3;
+    const DEVELOPMENT = 4;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -63,6 +68,7 @@ class Quotation
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="quotations")
+     * @ORM\JoinColumn(name="user_id", nullable=true, referencedColumnName="id")
      */
     private $user;
 
