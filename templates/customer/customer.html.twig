@@ -93,31 +93,18 @@
     {{ form_start(quotationForm) }}
 
         {{ form_row(quotationForm.email) }}
-        {#<div class="{{ quotationForm.vars.label }}">#}
-            {#<div>#}
-                {#<input type="checkbox" id="{{ quotationForm.packageType.vars.form.0.vars.id }}" name="{{ quotationForm.packageType.vars.form.0.vars.name }}">#}
-                {#<label for="{{ quotationForm.packageType.vars.form.0.vars.id }}">Base</label>#}
-            {#</div>#}
-            {#<div>#}
-                {#<input type="checkbox" id="{{ quotationForm.packageType.vars.form.1.vars.id }}" name="{{ quotationForm.packageType.vars.form.1.vars.name }}">#}
-                {#<label for="{{ quotationForm.packageType.vars.form.1.vars.id }}">Marketing</label>#}
-            {#</div>#}
-            {#<div>#}
-                {#<input type="checkbox" id="{{ quotationForm.packageType.vars.form.2.vars.id }}" name="{{ quotationForm.packageType.vars.form.2.vars.name }}">#}
-                {#<label for="{{ quotationForm.packageType.vars.form.2.vars.id }}">Design</label>#}
-            {#</div>#}
-            {#<div>#}
-                {#<input type="checkbox" id="{{ quotationForm.packageType.vars.form.3.vars.id }}" name="{{ quotationForm.packageType.vars.form.3.vars.name }}">#}
-                {#<label for="{{ quotationForm.packageType.vars.form.3.vars.id }}">Development</label>#}
-            {#</div>#}
-        {#</div>#}
-    {#quotationForm.packageType.vars.choices.0#}
-        {{ form_label(quotationForm.packageType) }}
-        {{ form_errors(quotationForm.packageType) }}
-        {{ form_widget(quotationForm.packageType) }}
+
+        {% for package in quotationForm.packageType %}
+
+            {{ form_label(package) }}
+            {{ form_errors(package) }}
+            {{ form_widget(package) }}
+
+            {% include('customer/packages/'~package.vars.label|lower~'.html.twig') %}
+
+        {% endfor %}
 
         {{ form_row(quotationForm.comment) }}
-        {#{{ dump(quotationForm.packageType.vars.form.0) }}#}
 
 
         <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
