@@ -9,10 +9,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Quotation
 {
+    // Value to packageType
     const BASE = 1;
     const MARKETING = 2;
     const DESIGN = 3;
     const DEVELOPMENT = 4;
+
+    // Value to status
+    const TOANSWER = 0;
+    const ANSWERED = 1;
+    const CONCLUDED = 2;
 
     /**
      * @ORM\Id()
@@ -27,7 +33,7 @@ class Quotation
     private $createdAt;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="array")
      */
     private $packageType;
 
@@ -94,12 +100,12 @@ class Quotation
         return $this;
     }
 
-    public function getPackageType(): ?int
+    public function getPackageType(): ?array
     {
         return $this->packageType;
     }
 
-    public function setPackageType(int $packageType): self
+    public function setPackageType(?array $packageType): self
     {
         $this->packageType = $packageType;
 

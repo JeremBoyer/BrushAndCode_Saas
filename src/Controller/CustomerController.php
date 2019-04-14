@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Quotation;
+use App\Form\QuotationType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -21,21 +22,24 @@ class CustomerController extends AbstractController
     {
         $quotation = new Quotation() ;
 
-        $quotationForm = $this->createFormBuilder($quotation)
-                            ->add('comment', TextareaType::class)
-                            ->add('packageType', ChoiceType::class, [
-                                'choices' => [
-                                    "Base" => Quotation::BASE,
-                                    "Marketing" => Quotation::MARKETING,
-                                    "Design" => Quotation::DESIGN,
-                                    "Development" => Quotation::DEVELOPMENT,
-                                ],
-                                'multiple' => true,
-                                'expanded' => true
+        $quotationForm = $this->createForm(QuotationType::class, $quotation);
+        $quotation->setCreatedAt(new \DateTime());
 
-                            ])
-                            ->add('email')
-                            ->getForm();
+        $quotation->setStatus(Quotation::TOANSWER);
+
+        $quotationForm->handleRequest($resquest);
+
+        dump($quotation);
+
+        dump($quotation->getPackageType());
+
+        if ($quotationForm->isSubmitted() && $quotationForm->isValid())
+        {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($quotation);
+
+            $entityManager->flush();
+        }
 //        dump($quotationForm, $quotation);
 
         return $this->render('customer/customer.html.twig' , [
