@@ -5,12 +5,10 @@ namespace App\Controller;
 use App\Entity\Quotation;
 use App\Form\QuotationType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+
+use App\Service\CreatePdfService;
 
 class CustomerController extends AbstractController
 {
@@ -18,20 +16,28 @@ class CustomerController extends AbstractController
     /**
      * @Route("/", name="customer")
      */
-    public function customer(Request $resquest)
+    public function customer(
+        Request $resquest,
+        CreatePdfService $pdf
+    )
     {
         $quotation = new Quotation() ;
 
         $quotationForm = $this->createForm(QuotationType::class, $quotation);
         $quotation->setCreatedAt(new \DateTime());
-
         $quotation->setStatus(Quotation::TOANSWER);
 
         $quotationForm->handleRequest($resquest);
 
-        dump($quotation);
+        $html = $this->renderView('default/mypdf.html.twig', [
 
-        dump($quotation->getPackageType());
+            'date' => $quotation->getCreatedAt()->format("d/m/Y"),
+            'email' => $quotation->getEmail(),
+            'comment' => $quotation->getComment()
+
+        ]);
+        $pdf->createPdf($html);
+
 
         if ($quotationForm->isSubmitted() && $quotationForm->isValid())
         {
