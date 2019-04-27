@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Quotation;
 use App\Form\QuotationType;
+use App\Service\QuotationService;
+use App\Service\SendEmailService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,7 +20,9 @@ class CustomerController extends AbstractController
      */
     public function customer(
         Request $resquest,
-        CreatePdfService $pdf
+        CreatePdfService $pdf,
+        SendEmailService $mail,
+        QuotationService $quotationService
     )
     {
         $quotation = new Quotation() ;
@@ -28,22 +32,6 @@ class CustomerController extends AbstractController
         $quotation->setStatus(Quotation::TOANSWER);
 
         $quotationForm->handleRequest($resquest);
-
-
-
-
-
-//        $htmlBaseMail = $this->renderView('email/base_pack.html.twig', [
-//
-//            'date' => $quotation->getCreatedAt()->format("d/m/Y")
-//
-//        ]);
-//
-//        $htmlPremiumMail = $this->renderView('email/prem'webmaster@madboyeslab.com'ium_pack.html.twig', [
-//
-//            "id" => $quotation->getId()
-//
-//        ]);
 
 
         if ($quotationForm->isSubmitted() && $quotationForm->isValid())
@@ -56,8 +44,9 @@ class CustomerController extends AbstractController
 //                'comment' => $quotation->getComment()
 //
 //            ]);
-            $pdf->createPdf($quotation);
+//            $pdf->createPdf($quotation);
 
+            $quotationService->choicePack($quotation, $pdf, $mail);
 
 
             $entityManager = $this->getDoctrine()->getManager();
