@@ -18,7 +18,18 @@ class CustomerController extends AbstractController
     /**
      * @Route("/", name="customer")
      */
-    public function customer(
+    public function customer()
+    {
+
+
+        return $this->render('customer/customer.html.twig');
+
+    }
+
+    /**
+     * @Route("/quotation", name="quotation")
+     */
+    public function quotation(
         Request $resquest,
         CreatePdfService $pdf,
         SendEmailService $mail,
@@ -37,14 +48,6 @@ class CustomerController extends AbstractController
         if ($quotationForm->isSubmitted() && $quotationForm->isValid())
         {
 
-//            $htmlPdf = $this->renderView('default/mypdf.html.twig', [
-//
-//                'date' => $quotation->getCreatedAt()->format("d/m/Y"),
-//                'email' => $quotation->getEmail(),
-//                'comment' => $quotation->getComment()
-//
-//            ]);
-//            $pdf->createPdf($quotation);
 
             $quotationService->choicePack($quotation, $pdf, $mail);
 
@@ -56,7 +59,7 @@ class CustomerController extends AbstractController
 
         }
 
-        return $this->render('customer/customer.html.twig' , [
+        return $this->render('customer/quotation.html.twig' , [
             'quotationForm' => $quotationForm->createView()
         ]);
 

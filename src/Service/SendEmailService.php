@@ -30,9 +30,7 @@ class SendEmailService
     public function attachmentSwiftMail($fileName, \Swift_Message $message, $pdf = null)
     {
 
-        $attachment = (new \Swift_Attachment($pdf, $fileName));
-
-        $message->attach($attachment);
+        $message->attach(new \Swift_Attachment($pdf, $fileName, "application/pdf"));
 
         return $message;
 

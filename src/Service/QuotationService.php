@@ -31,10 +31,6 @@ class QuotationService
                 'comment' => $quotation->getComment()
 
             ]);
-//            dump($htmlPdf);
-//            die();
-
-            $pdf->createPdf($htmlPdf);
 
             $htmlMail = $this->templating->render('email/base_pack.html.twig', [
 
@@ -42,9 +38,13 @@ class QuotationService
 
             ]);
 
-            $message = $mail->setSwiftMail('Brush&Code, Pack de base', $htmlMail, $quotation);
+            $message = $mail->setSwiftMail('Brush&Code, Base Pack', $htmlMail, $quotation);
 
-            $message_attachment = $mail->attachmentSwiftMail('Mon_Devis', $message, $pdf);
+            $message_attachment = $mail->attachmentSwiftMail(
+                'mon_devis.pdf',
+                $message,
+                $pdf->createPdf($htmlPdf)
+            );
 
             $mail->sendSwiftMail($message_attachment);
 //            $mail->sendSwiftMail($message);
@@ -57,7 +57,7 @@ class QuotationService
 
             ]);
 
-            $message = $mail->setSwiftMail('Brush&Code, Pack de base', $htmlMail, $quotation);
+            $message = $mail->setSwiftMail('Brush&Code, Premium Pack', $htmlMail, $quotation);
 
             $mail->sendSwiftMail($message);
         }

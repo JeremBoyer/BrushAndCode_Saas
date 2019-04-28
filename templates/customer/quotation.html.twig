@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme quotationForm 'bootstrap_4_layout.html.twig' %}
+
+{% block title %} BrushAndCode {% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center"> NOS SERVICES </h1>
+
+    <div class="container">
+        <p class="text-center">
+            <em>
+                Nos prestations sur mesure comprennent la gestion de projet multimédia.
+                Si une de ces prestations vous intéressent cochez le domaine correspondant
+                et un chef de projet prendra contact avec vous pour coller au plus près de vos besoins en digital.
+                Et donc vous proposer le prix le plus juste.*
+            </em>
+        </p>
+    </div>
+
+    <div class="container">
+        {{ form_start(quotationForm) }}
+
+
+        {% for package in quotationForm.packageType %}
+            <div class="row">
+                <h3>
+                    {{ form_label(package) }}
+                </h3>
+            </div>
+
+
+            {{ form_errors(package) }}
+            {{ form_widget(package) }}
+
+            {% include('customer/packages/'~package.vars.label|lower~'.html.twig') %}
+
+        {% endfor %}
+
+
+        {{ form_row(quotationForm.email) }}
+
+        {{ form_row(quotationForm.comment) }}
+
+
+        <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
+
+        {{ form_end(quotationForm) }}
+    </div>
+
+
+{% endblock %}

@@ -1,3 +1,38 @@
-body {
-    background-color: lightgray;
+@font-face {
+    font-family: "BARON_NEUE";
+    src: url("../fonts/BARON_NEUE.OTF") format("opentype");
 }
+
+@font-face {
+    font-family: "BARON_NEUE_BLACK";
+    src: url("../fonts/BARON_NEUE_BLACK.OTF") format("opentype");
+}
+
+@font-face {
+    font-family: "MORGANITE-MEDIUM";
+    src: url("../fonts/MORGANITE-MEDIUM.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "MORGANITE-EXTRABOLD";
+    src: url("../fonts/MORGANITE-EXTRABOLD.TTF") format("truetype");
+}
+
+body {
+    background-color: #0c5460;
+}
+
+h1 {
+    font-family: BARON_NEUE_BLACK, sans-serif;
+    font-weight: bold;
+}
+
+h3 {
+    font-family: BARON_NEUE, sans-serif;
+}
+
+em {
+    font-family: Roboto, sans-serif;
+}
+
+
