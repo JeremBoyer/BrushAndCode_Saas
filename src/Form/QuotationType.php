@@ -17,10 +17,10 @@ class QuotationType extends AbstractType
             ->add('comment', TextareaType::class)
             ->add('packageType', ChoiceType::class, [
                 'choices' => [
-                    "Base" => Quotation::BASE,
-                    "Marketing" => Quotation::MARKETING,
-                    "Design" => Quotation::DESIGN,
-                    "Development" => Quotation::DEVELOPMENT,
+                    "BASEPACK" => Quotation::BASEPACK,
+                    "EMARKETING" => Quotation::EMARKETING,
+                    "DESIGN" => Quotation::DESIGN,
+                    "DEVELOPMENT" => Quotation::DEVELOPMENT,
                 ],
                 'multiple' => true,
                 'expanded' => true

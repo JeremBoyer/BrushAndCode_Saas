@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Quotation
 {
     // Value to packageType
-    const BASE = 1;
-    const MARKETING = 2;
+    const BASEPACK = 1;
+    const EMARKETING = 2;
     const DESIGN = 3;
     const DEVELOPMENT = 4;
 

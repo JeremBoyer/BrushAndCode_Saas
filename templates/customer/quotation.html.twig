@@ -6,9 +6,16 @@
 
 {% block body %}
 
-    <h1 class="text-center"> NOS SERVICES </h1>
+    <div class="container">
+        <h1 class="text-center">
+                <span class="title_page">
+                    Nos services
+                </span>
+        </h1>
+    </div>
 
     <div class="container">
+        <hr class="text-center my-4" size="3" color="white">
         <p class="text-center">
             <em>
                 Nos prestations sur mesure comprennent la gestion de projet multimédia.
@@ -17,6 +24,7 @@
                 Et donc vous proposer le prix le plus juste.*
             </em>
         </p>
+        <hr class="text-center my-4" size="3" color="white">
     </div>
 
     <div class="container">
@@ -24,27 +32,49 @@
 
 
         {% for package in quotationForm.packageType %}
+
             <div class="row">
-                <h3>
-                    {{ form_label(package) }}
+
+                <h3 class="text-uppercase text-center">
+                        {{ form_label(package, {"label_attr" : {"class" : "text-center"}}) }}
+
+                        {{ form_errors(package) }}
+
+                        {{ form_widget(package) }}
                 </h3>
+
             </div>
 
-
-            {{ form_errors(package) }}
-            {{ form_widget(package) }}
-
-            {% include('customer/packages/'~package.vars.label|lower~'.html.twig') %}
+                {% include('customer/packages/'~package.vars.label|lower~'.html.twig') %}
 
         {% endfor %}
 
+        <h4 class="my-4 py-4">
+            {{ form_label(quotationForm.email, "Email") }}
 
-        {{ form_row(quotationForm.email) }}
+            {{ form_errors(quotationForm.email) }}
 
-        {{ form_row(quotationForm.comment) }}
+            {{ form_widget(quotationForm.email, {"attr" : {"placeholder" : "Renseignez votre Email"}}) }}
+        </h4>
+
+        <h4 class="py-4 my-4">
+            {{ form_label(quotationForm.comment, "Décrivez votre projet") }}
+
+            {{ form_errors(quotationForm.comment) }}
+
+            {{ form_widget(quotationForm.comment, {"attr" : {
+                "placeholder" : "N'hésitez pas à être précis",
+                "rows" : "10"
+            }}) }}
+        </h4>
 
 
-        <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
+
+        <button type="submit" class="btn-gradient ">
+            <p class="text_btn">
+                Enregistrer
+            </p>
+        </button>
 
         {{ form_end(quotationForm) }}
     </div>
