@@ -22,13 +22,12 @@ class QuotationService
     {
 
 
-        if ($quotation->getPackageType() === [0 => Quotation::BASE]) {
+        if ($quotation->getPackageType() === [0 => Quotation::BASEPACK]) {
 
             $htmlPdf = $this->templating->render('default/mypdf.html.twig', [
 
                 'date' => $quotation->getCreatedAt()->format("d/m/Y"),
                 'email' => $quotation->getEmail(),
-                'comment' => $quotation->getComment()
 
             ]);
 
@@ -41,7 +40,7 @@ class QuotationService
             $message = $mail->setSwiftMail('Brush&Code, Base Pack', $htmlMail, $quotation);
 
             $message_attachment = $mail->attachmentSwiftMail(
-                'mon_devis.pdf',
+                'base_pack.pdf',
                 $message,
                 $pdf->createPdf($htmlPdf)
             );
@@ -61,6 +60,21 @@ class QuotationService
 
             $mail->sendSwiftMail($message);
         }
+
+    }
+
+    public function resultFormToBrushAndCode (Quotation $quotation, SendEmailService $mail)
+    {
+
+        $htmlMail = $this->templating->render('email/to_brush_and_code.html.twig', [
+
+            'quotation' => $quotation,
+
+        ]);
+
+        $message = $mail->setSwiftMailToBrushAndCode($htmlMail, $quotation);
+
+        $mail->sendSwiftMail($message);
 
     }
 

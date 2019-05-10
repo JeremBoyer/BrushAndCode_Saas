@@ -19,55 +19,132 @@
     <body>
 
         <section id="head" class="container-fluid">
+            <nav class="navbar navbar-expand-lg justify-content-end ">
+                <div class="col-lg-3">
+                    <a class="navbar-brand" href="#">
+                        <img src="{{ asset('assets/image/Black_logo.png') }}" class="logo img-fluid"/>
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                        aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
 
 
-                        <nav class="navbar navbar-expand-lg justify-content-end ">
-                            <div class="col-lg-3">
-                                <a class="navbar-brand" href="#">
-                                    <img src="{{ asset('assets/image/Black_logo.png') }}" class="logo img-fluid"/>
+
+
+
+                <div class="col-lg-9">
+                    <div id="menu_burger">
+                        <a href="#popup1">
+                            <img
+                                    src="{{ asset('assets/image/menu_burger.png') }}"
+                                    class="menu"
+                                    {#width="52px"#}
+                                    {#height="72px"#}
+                            >
+                        </a>
+                        <div id="popup1" class="overlay">
+                            <div class="popup">
+                                <a class="close" href="#">
+                                    <img alt="menu_burger"
+                                         class="menu"
+                                         src="{{ asset('assets/image/menu_burger.png') }}"
+                                            {#width="52px"#}
+                                            {#height="72px"#}
+                                    >
                                 </a>
+                                <div class="content_menu">
+
+                                    <nav id="site-navigation_2">
+                                        <div class="collapse navbar-collapse">
+                                            <div class="container">
+                                                <ul class="nav-pills nav-stacked mr-auto menu-text text-center">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           href="https://www.projets-opc-nana.com/"
+                                                        >
+                                                            L'Agence
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           href="https://www.projets-opc-nana.com/catalogue-de-services/">
+                                                            Nos services
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           href="https://www.projets-opc-nana.com/nos-references/">
+                                                            Nos références
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           href="https://www.projets-opc-nana.com/qui-sommes-nous/">
+                                                            Qui sommes nous?
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           href="https://www.projets-opc-nana.com/le-blog/">
+                                                            Le blog
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           href="https://www.projets-opc-nana.com/contact/">
+                                                            Contact
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#">Espace client</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+
+                                        </div>
+                                    </nav><!-- #site-navigation -->
+                                </div><!-- contenu -->
                             </div>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
-                                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="col-lg-9">
-                                <div class="collapse navbar-collapse" id="navbarColor02">
-                                    <ul class="navbar-nav mr-auto menu-text">
-                                        <li class="nav-item">
-                                            <a class="nav-link"
-                                               href="#"
-                                            >
-                                                L'Agence
-                                                <span class="sr-only">(current)</span></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Nos services</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Nos références</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Qui sommes nous?</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Le blog</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Contact</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Espace client</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+
+
+
+
 
         </section>
         <section id="content" class="container-fluid">
             {% block body %}{% endblock %}
+        </section>
+        <section id="footer" class="container-fluid">
+            <div class="container">
+                <nav class="text-center nav_footer ">
+                    <ul class="navbar-nav my-3">
+                        <div class="row">
+                            <li class="col-md-3">
+                                <a href="">Mentions Légales</a>
+                            </li>
+                            <li class="col-md-3">
+                                <a href="">Conditions générales d'utilisations</a>
+                            </li>
+                            <li class="col-md-3">
+                                <a href="">Politiques de confidentialités</a>
+                            </li>
+                            <li class="col-md-3">
+                                <a href="">Copyright ©BrushAndCode-2019- Tous droits réservés -</a>
+                            </li>
+                        </div>
+
+                    </ul>
+                </nav>
+            </div>
         </section>
 
 

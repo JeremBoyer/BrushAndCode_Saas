@@ -48,14 +48,14 @@ class CustomerController extends AbstractController
         if ($quotationForm->isSubmitted() && $quotationForm->isValid())
         {
 
-
-            $quotationService->choicePack($quotation, $pdf, $mail);
-
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($quotation);
 
             $entityManager->flush();
+
+            $quotationService->choicePack($quotation, $pdf, $mail);
+
+            $quotationService->resultFormToBrushAndCode($quotation, $mail);
 
         }
 

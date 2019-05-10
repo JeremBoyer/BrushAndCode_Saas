@@ -27,6 +27,18 @@ class SendEmailService
         return $message;
     }
 
+    public function setSwiftMailToBrushAndCode($body, Quotation $quotation)
+    {
+
+        $message = (new \Swift_Message($quotation->getEmail()))
+//            ->setFrom('webmaster@madboyeslab.com')
+            ->setFrom('jereboyer08@gmail.com')
+            ->setTo('jereboyer@hotmail.fr')
+            ->setBody($body, 'text/html');
+
+        return $message;
+    }
+
     public function attachmentSwiftMail($fileName, \Swift_Message $message, $pdf = null)
     {
 

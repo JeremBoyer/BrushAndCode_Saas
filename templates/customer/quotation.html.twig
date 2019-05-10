@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% form_theme quotationForm 'bootstrap_4_layout.html.twig' %}
+ {% form_theme quotationForm 'bootstrap_4_layout.html.twig' %}
 
 {% block title %} BrushAndCode {% endblock %}
 
@@ -36,7 +36,7 @@
             <div class="row">
 
                 <h3 class="text-uppercase text-center">
-                        {{ form_label(package, {"label_attr" : {"class" : "text-center"}}) }}
+                    {#{{ form_label(package, {"label_attr" : {"class" : "text-center"}}) }}#}
 
                         {{ form_errors(package) }}
 
@@ -48,6 +48,8 @@
                 {% include('customer/packages/'~package.vars.label|lower~'.html.twig') %}
 
         {% endfor %}
+
+
 
         <h4 class="my-4 py-4">
             {{ form_label(quotationForm.email, "Email") }}
@@ -70,7 +72,7 @@
 
 
 
-        <button type="submit" class="btn-gradient ">
+        <button type="submit" class="btn-gradient mb-4 ">
             <p class="text_btn">
                 Enregistrer
             </p>

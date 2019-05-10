@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<ul>
+    <li>
+        {{ quotation.createdAt.format('d/m/Y') }}
+
+    </li>
+    <li>
+        {{ quotation.email }}
+
+    </li>
+    <li>
+        {{ quotation.comment }}
+
+    </li>
+    <li>
+        {% for package in quotation.packageType %}
+            {{ package }}
+        {% endfor %}
+    </li>
+</ul>
+
+
+
+</body>
+</html>
