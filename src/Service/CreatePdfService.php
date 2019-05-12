@@ -1,24 +1,34 @@
 <?php
 namespace App\Service;
 
-use App\Entity\Quotation;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
-//use \Symfony\Bridge\Twig\TwigEngine;
 use Symfony\Component\Templating\EngineInterface;
-
 
 class CreatePdfService
 {
-
+    /**
+     * @var EngineInterface
+     */
     private $engine;
 
+    /**
+     * CreatePdfService constructor.
+     * @param EngineInterface $engine
+     */
     public function __construct(EngineInterface $engine)
     {
         $this->engine = $engine;
     }
 
+    /**
+     * Create a pdf with dompdf
+     * https://github.com/dompdf/dompdf
+     *
+     * @param $html
+     * @return null|string
+     */
     public function createPdf($html)
     {
         // Configure Dompdf according to your needs
@@ -28,7 +38,6 @@ class CreatePdfService
 
         // Instantiate Dompdf with our options
         $dompdf = new Dompdf($pdfOptions);
-
 
         // Load HTML to Dompdf
         $dompdf->loadHtml($html);

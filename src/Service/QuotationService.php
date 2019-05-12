@@ -1,16 +1,26 @@
 <?php
 namespace App\Service;
 
-
 use App\Entity\Quotation;
 use Symfony\Component\Templating\EngineInterface;
 
+/**
+ * Business logic
+ *
+ * Class QuotationService
+ * @package App\Service
+ */
 class QuotationService
 {
+    /**
+     * @var EngineInterface
+     */
     private $templating;
 
-
-
+    /**
+     * QuotationService constructor.
+     * @param EngineInterface $templating
+     */
     public function __construct(EngineInterface $templating)
     {
 
@@ -18,10 +28,15 @@ class QuotationService
 
     }
 
+    /**
+     * Choice of pack, and send mail with pdf or not
+     *
+     * @param Quotation $quotation
+     * @param CreatePdfService|null $pdf
+     * @param SendEmailService $mail
+     */
     public function choicePack(Quotation $quotation, CreatePdfService $pdf = null, SendEmailService $mail)
     {
-
-
         if ($quotation->getPackageType() === [0 => Quotation::BASEPACK]) {
 
             $htmlPdf = $this->templating->render('default/mypdf.html.twig', [
@@ -46,7 +61,6 @@ class QuotationService
             );
 
             $mail->sendSwiftMail($message_attachment);
-//            $mail->sendSwiftMail($message);
 
         } else {
 
@@ -63,6 +77,12 @@ class QuotationService
 
     }
 
+    /**
+     * Send email to BrushAndCode with result of form
+     *
+     * @param Quotation $quotation
+     * @param SendEmailService $mail
+     */
     public function resultFormToBrushAndCode (Quotation $quotation, SendEmailService $mail)
     {
 

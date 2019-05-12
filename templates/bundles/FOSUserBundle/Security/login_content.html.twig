@@ -1,18 +1,38 @@
+{% trans_default_domain 'FOSUserBundle' %}
 
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
 
 <form action="{{ path("fos_user_security_check") }}" method="post">
-    {% if csrf_token %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-    {% endif %}
+    <div class="container">
+        <div class="form-group">
+            {% if csrf_token %}
+                <input class="form-control" type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            {% endif %}
 
-    <label for="email">Votre email</label>
-    <input type="text" id="email" name="_email" value="{{ last_username }}" required="required" autocomplete="email" />
+            <h4>
+                <label for="username">Votre email</label>
+            </h4>
+            <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
 
-    <label for="password">Votre mot de passe</label>
-    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+            <h4>
+                <label for="password">Votre mot de passe</label>
+            </h4>
+            <input class="form-control" type="password" id="password" name="_password" required="required" autocomplete="current-password" />
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">Se souvenir de moi</label>
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <h4>
+                <label for="remember_me">Se souvenir de moi</label>
+            </h4>
 
-    <input type="submit" id="_submit" name="_submit" value="Connexion" />
+
+            <button type="submit" class="btn-gradient mb-4" id="_submit" name="_submit">
+                <p class="text_btn">
+                    Connexion
+                </p>
+            </button>
+        </div>
+    </div>
+
 </form>

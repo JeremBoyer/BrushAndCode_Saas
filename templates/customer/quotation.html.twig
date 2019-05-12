@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
- {% form_theme quotationForm 'bootstrap_4_layout.html.twig' %}
+{% form_theme quotationForm 'bootstrap_4_layout.html.twig' %}
 
 {% block title %} BrushAndCode {% endblock %}
 
@@ -44,8 +44,10 @@
                 </h3>
 
             </div>
-
+            <div class="norm">
                 {% include('customer/packages/'~package.vars.label|lower~'.html.twig') %}
+            </div>
+
 
         {% endfor %}
 

@@ -5,9 +5,15 @@ use App\Entity\Quotation;
 
 class SendEmailService
 {
-
+    /**
+     * @var \Swift_Mailer
+     */
     private $mailer;
 
+    /**
+     * SendEmailService constructor.
+     * @param \Swift_Mailer $mailer
+     */
     public function __construct(\Swift_Mailer $mailer)
     {
 
@@ -15,6 +21,14 @@ class SendEmailService
 
     }
 
+    /**
+     * Set object Swift Message for send to customer
+     *
+     * @param $titleMessage
+     * @param $body
+     * @param Quotation $quotation
+     * @return \Swift_Message
+     */
     public function setSwiftMail($titleMessage, $body, Quotation $quotation)
     {
 
@@ -27,6 +41,13 @@ class SendEmailService
         return $message;
     }
 
+    /**
+     * Set Swift Message object for send form to BrushAndCode
+     *
+     * @param $body
+     * @param Quotation $quotation
+     * @return \Swift_Message
+     */
     public function setSwiftMailToBrushAndCode($body, Quotation $quotation)
     {
 
@@ -39,6 +60,14 @@ class SendEmailService
         return $message;
     }
 
+    /**
+     * Attach a pdf to Swift object
+     *
+     * @param $fileName
+     * @param \Swift_Message $message
+     * @param null $pdf
+     * @return \Swift_Message
+     */
     public function attachmentSwiftMail($fileName, \Swift_Message $message, $pdf = null)
     {
 
@@ -48,6 +77,11 @@ class SendEmailService
 
     }
 
+    /**
+     * Send a Swift mail
+     *
+     * @param \Swift_Message $message
+     */
     public function sendSwiftMail(\Swift_Message $message)
     {
 
