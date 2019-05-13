@@ -4,22 +4,58 @@
 
 {% block fos_user_content %}
 
-    <h1>Inscription avant devis</h1>
+    <div class="container">
+        <h1 class="text-center">Inscription avant devis</h1>
 
-    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
-        {{ form_row(form.email, {"label" : "Adresse email"}, {"label_attr" : {"class" : "form-control"}}) }}
+            <h4 class="pt-4 mt-4">
+                {{ form_label(form.email, "Adresse email") }}
 
-        {{ form_row(form.firstName, {"label" : "Prénom"}) }}
+                {{ form_errors(form.email) }}
 
-        {{ form_row(form.username, {"label" : "Nom"}) }}
+                {{ form_widget(form.email, {"attr" : {
+                    "placeholder" : "Votre adresse mail"
+                }}) }}
+            </h4>
 
-        {{ form_row(form.plainPassword, {"label" : "Confirmation de mot de passe"}) }}
+            <h4>
+                {{ form_label(form.firstName, "Prénom") }}
 
-        <div>
-            <input class="btn btn-primary" type="submit" value="{{ 'registration.submit'|trans }}" />
-        </div>
+                {{ form_errors(form.firstName) }}
 
-    {{ form_end(form) }}
+                {{ form_widget(form.firstName, {"attr" : {
+                    "placeholder" : "Votre prénom"
+                }}) }}
+            </h4>
+
+            <h4>
+                {{ form_label(form.username, "Nom") }}
+
+                {{ form_errors(form.username) }}
+
+                {{ form_widget(form.username, {"attr" : {
+                    "placeholder" : "Votre nom"
+                }}) }}
+            </h4>
+
+            <h4 class="py-4 my-4">
+                {{ form_row(form.plainPassword, {
+                    "options" : {
+                        "attr" : {
+                            "placeholder" : "Mot de passe"
+                        }
+                }}) }}
+            </h4>
+
+
+            <button type="submit" class="btn-gradient mb-4" id="_submit" name="_submit" value="{{ 'registration.submit'|trans }}">
+                <p class="text_btn">
+                    Connexion
+                </p>
+            </button>
+
+        {{ form_end(form) }}
+    </div>
 
 {% endblock fos_user_content %}

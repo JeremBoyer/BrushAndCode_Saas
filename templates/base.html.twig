@@ -99,7 +99,13 @@
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="#">Espace client</a>
+                                                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                                        <a href="{{ path('fos_user_security_logout') }}">
+                                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                                        </a>
+                                                        {% else %}
+                                                        <a href="{{ path('fos_user_security_login') }}">Espace client</a>
+                                                        {% endif %}
                                                     </li>
                                                 </ul>
                                             </div>
