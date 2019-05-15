@@ -124,7 +124,6 @@ hr {
 .card_choice:hover {
     background-color: #1b1e21;
     color: #FFFFFF;
-
 }
 
 .card-header {
@@ -225,7 +224,7 @@ hr {
 }
 
 .popup {
-    z-index: 10;
+    z-index: 1100;
     padding: 20px;
     background: #dfdfdf;
     border-radius: 5px;
@@ -259,6 +258,7 @@ hr {
 .popup .content_menu {
     height: 100%;
     overflow: auto;
+    z-index: 1100;
 }
 
 .menu:hover {
@@ -285,7 +285,7 @@ hr {
     text-align: center;
 }
 
-.menu_2 li a, a:hover, a:visited{
+.menu_2 li , a:hover, a:visited{
     text-decoration: none;
     color:#000000;
 }
@@ -302,9 +302,5 @@ hr {
     opacity: 0.35;
     text-shadow: 12px 13px 6px #000000;
     border-top: black solid;
-
 }
 
-/*.nav_footer li {*/
-    /*list-style-type: none;*/
-/*}*/
