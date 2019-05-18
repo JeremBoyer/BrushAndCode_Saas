@@ -16,6 +16,29 @@
 
     <div class="container">
         <hr class="text-center my-4" size="3" color="white">
+        <div class="row">
+            <button class="col-md-4 btn-gradient">
+
+                <a href="{{ path('customer') }}">
+                    <p class="norm_white text-center">
+                        Pas encore inscrit?
+                    </p>
+                </a>
+
+            </button>
+            <div class="col-md-4">
+
+            </div>
+            <button class="col-md-4 btn-gradient">
+
+                <a href="{{ path('quotation') }}">
+                    <p class="norm_white text-center">
+                        Un devis?
+                    </p>
+                </a>
+
+            </button>
+        </div>
         <p class="text-center">
             <em>
                 Nos prestations sur mesure comprennent la gestion de projet multimédia.
@@ -24,6 +47,7 @@
                 Et donc vous proposer le prix le plus juste.*
             </em>
         </p>
+
         <hr class="text-center my-4" size="3" color="white">
     </div>
 
@@ -33,7 +57,7 @@
 
         {% for package in quotationForm.packageType %}
 
-            <div class="row">
+            <div class="row ">
 
                 <h3 class="text-uppercase text-center">
                         {{ form_label(package, {"label_attr" : {"class" : "text-center"}}) }}
@@ -44,7 +68,7 @@
                 </h3>
 
             </div>
-            <div class="norm">
+            <div class="norm mb-3 pb-3">
                 {% include('customer/packages/'~package.vars.label|lower~'.html.twig') %}
             </div>
 

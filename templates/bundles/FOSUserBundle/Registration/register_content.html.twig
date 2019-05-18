@@ -5,7 +5,31 @@
 {% block fos_user_content %}
 
     <div class="container">
+
         <h1 class="text-center">Inscription avant devis</h1>
+        <div class="row">
+            <button class="col-md-4 btn-gradient">
+
+                <a href="{{ path('customer') }}">
+                    <p class="norm_white text-center">
+                        Connexion
+                    </p>
+                </a>
+
+            </button>
+            <div class="col-md-4">
+
+            </div>
+            <button class="col-md-4 btn-gradient">
+
+                <a href="{{ path('quotation') }}">
+                    <p class="norm_white text-center">
+                        Un devis?
+                    </p>
+                </a>
+
+            </button>
+        </div>
 
         {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 

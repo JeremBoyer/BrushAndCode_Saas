@@ -81,11 +81,20 @@ hr {
     font-size: 20px;
 }
 
+.norm_white {
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
 .btn-gradient {
     background-image: linear-gradient(#0080ff, #ff00ee);
     display: block;
     margin: auto;
-    width: 50%;
+    width: 300px;
     border-radius: 30px;
 }
 
@@ -121,9 +130,8 @@ hr {
     color: #FFFFFF;
 }
 
-.card_choice:hover {
-    background-color: #1b1e21;
-    color: #FFFFFF;
+.card {
+    z-index: auto;
 }
 
 .card-header {
@@ -133,7 +141,19 @@ hr {
     font-size: 30px;
 }
 
+.card_choice:hover {
+    background-color: #1b1e21;
+    text-shadow: none;
+    color: #FFFFFF;
+}
 
+.card-header:hover {
+    text-shadow: none;
+}
+
+a div.card_choice:hover {
+    text-shadow: none;
+}
 
 .card-body {
     font-family: Roboto, sans-serif;
@@ -142,7 +162,11 @@ hr {
 }
 
 .card-footer {
-    background-color: #dfdfdf;
+    background-color: #FFFFFF;
+    font-family: BARON_NEUE_BOLD, sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    text-shadow: 12px 7px 3px #b1b1b1;
 }
 
 .form-check-label {
@@ -224,9 +248,9 @@ hr {
 }
 
 .popup {
-    z-index: 1100;
+    z-index: 2000;
     padding: 20px;
-    background: #dfdfdf;
+    background: #000000;
     border-radius: 5px;
     width: 100%;
     height:100%;
@@ -247,8 +271,8 @@ hr {
 }
 
 .close img{
-    transition: transform 300ms ease-out;
-    /*transform: rotate(90deg);*/
+    /*transition: transform 300ms ease-out;*/
+    transform: rotate(90deg);
     margin: 20px 85px 40px 2px
 }
 .popup .close:hover {
