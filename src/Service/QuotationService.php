@@ -41,7 +41,7 @@ class QuotationService
 
             $htmlPdf = $this->templating->render('default/mypdf.html.twig', [
 
-                'date' => $quotation->getCreatedAt()->format("d/m/Y"),
+                'date'  => $quotation->getCreatedAt()->format("d/m/Y"),
                 'email' => $quotation->getEmail(),
 
             ]);
@@ -65,9 +65,7 @@ class QuotationService
         } else {
 
             $htmlMail = $this->templating->render('email/premium_pack.html.twig', [
-
-
-
+                "quotation" => $quotation
             ]);
 
             $message = $mail->setSwiftMail('Brush&Code, Premium Pack', $htmlMail, $quotation);

@@ -57,6 +57,8 @@ class CustomerController extends AbstractController
 
             $quotationService->resultFormToBrushAndCode($quotation, $mail);
 
+            $this->redirect('https://www.projets-opc-nana.com/');
+
         }
 
         return $this->render('customer/quotation.html.twig' , [

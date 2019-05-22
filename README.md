@@ -11,4 +11,10 @@ Les personnes ayant réalisé ce projet sont :
 * Djapa Nana (CDP option développement)
 * Adamson Bello (CDP option marketing)
 * Richard Meunier (CDP option design)
-* Boyer Jérémy (CDP option développement)
+* Boyer Jérémy (CDP option développement
+
+Voici un Drive ou vous pouvez consulter les fichiers.
+https://drive.google.com/open?id=1_Q1W7z-MEh1N5BECmBHaVPmBbTjXuX_-
+
+Voila l'adresse de l'application Symfony : 
+http://brushncode.madboyeslab.com/

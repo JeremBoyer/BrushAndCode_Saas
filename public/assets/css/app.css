@@ -28,6 +28,11 @@ body {
     color: black;
 }
 
+nav {
+    display: block;
+    z-index: 1;
+}
+
 h1 {
     font-family: BARON_NEUE_BOLD, sans-serif;
     font-size: 65px;
@@ -221,10 +226,6 @@ a div.card_choice:hover {
     list-style-type: none;
 }
 
-.menu-text a:hover {
-    color: purple;
-}
-
 #menu_burger{
     display:block;
     margin: 20px 85px 40px 2px;
@@ -248,7 +249,7 @@ a div.card_choice:hover {
 }
 
 .popup {
-    z-index: 2000;
+    z-index: 6;
     padding: 20px;
     background: #000000;
     border-radius: 5px;
@@ -277,7 +278,6 @@ a div.card_choice:hover {
 }
 .popup .close:hover {
     transition: transform 300ms ease-out;
-    /*transform: rotate(-90deg);*/
 }
 .popup .content_menu {
     height: 100%;
@@ -292,8 +292,8 @@ a div.card_choice:hover {
 
 .menu{
     position:fixed;
-    margin-right:2em;
-    margin-top: 2em;
+    margin-right: 45px;
+    margin-top: 50px;
 }
 
 .menu_2{
@@ -327,4 +327,5 @@ a div.card_choice:hover {
     text-shadow: 12px 13px 6px #000000;
     border-top: black solid;
 }
+
 

@@ -15,14 +15,18 @@
             <!-- Renders a link tag (if your module requires any CSS)
                  <link rel="stylesheet" href="/build/app.css"> -->
             <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
+
         {% endblock %}
     </head>
     <body>
 
         <section id="head" class="container-fluid">
+
+
+            <!--/.Navbar-->
             <nav class="navbar navbar-expand-lg justify-content-end ">
                 <div class="col-lg-3">
-                    <a class="navbar-brand" href="https://www.projets-opc-nana.com/">
+                    <a class="navbar-brand" href="{{ path('customer') }}">
                         <img src="{{ asset('assets/image/Black_logo.png') }}" class="logo img-fluid"/>
                     </a>
                 </div>
@@ -31,29 +35,24 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-
-
-
-
-
                 <div class="col-lg-9">
                     <div id="menu_burger">
                         <a href="#popup1">
                             <img
                                     src="{{ asset('assets/image/menu_burger.png') }}"
                                     class="menu"
-                                    {#width="52px"#}
-                                    {#height="72px"#}
+                                    width="52px"
+                                    height="72px"
                             >
                         </a>
                         <div id="popup1" class="overlay">
-                            <div class="popup">
-                                <a class="close" href="https://www.projets-opc-nana.com/">
+                            <div class="popup ">
+                                <a class="close" href="{{ path('customer') }}" >
                                     <img alt="menu_burger"
                                          class="menu"
                                          src="{{ asset('assets/image/menu_burger.png') }}"
-                                            {#width="52px"#}
-                                            {#height="72px"#}
+                                            width="52px"
+                                            height="72px"
                                     >
                                 </a>
                                 <div class="content_menu">
@@ -65,37 +64,48 @@
                                                     <li class="nav-item">
                                                         <a class="nav-link"
                                                            href="https://www.projets-opc-nana.com/"
+                                                           target="_blank"
                                                         >
                                                             L'Agence
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
                                                         <a class="nav-link"
-                                                           href="https://www.projets-opc-nana.com/catalogue-de-services/">
+                                                           href="https://www.projets-opc-nana.com/catalogue-de-services/"
+                                                           target="_blank"
+                                                        >
                                                             Nos services
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
                                                         <a class="nav-link"
-                                                           href="https://www.projets-opc-nana.com/nos-references/">
+                                                           href="https://www.projets-opc-nana.com/nos-references/"
+                                                           target="_blank"
+                                                        >
                                                             Nos références
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
                                                         <a class="nav-link"
-                                                           href="https://www.projets-opc-nana.com/qui-sommes-nous/">
+                                                           href="https://www.projets-opc-nana.com/qui-sommes-nous/"
+                                                           target="_blank"
+                                                        >
                                                             Qui sommes nous?
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
                                                         <a class="nav-link"
-                                                           href="https://www.projets-opc-nana.com/le-blog/">
+                                                           href="https://www.projets-opc-nana.com/le-blog/"
+                                                           target="_blank"
+                                                        >
                                                             Le blog
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
                                                         <a class="nav-link"
-                                                           href="https://www.projets-opc-nana.com/contact/">
+                                                           href="https://www.projets-opc-nana.com/contact/"
+                                                           target="_blank"
+                                                        >
                                                             Contact
                                                         </a>
                                                     </li>
@@ -161,8 +171,10 @@
             {{ encore_entry_script_tags('app') }}
 
             <!-- Renders app.js & a webpack runtime.js file
-                <script src="/build/runtime.js"></script>
-                <script src="/build/app.js"></script> -->
+                <script src="/build/runtime.js"></script>-->
+                <script src="{{ asset('build/runtime.js') }}"></script>
+                <script src="{{ asset('assets/js/app.js') }}"></script>
+                <script src="{{ asset('build/app.js') }}"></script>
 
         {% endblock %}
     </body>
