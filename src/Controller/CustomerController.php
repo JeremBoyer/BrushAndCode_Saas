@@ -39,15 +39,14 @@ class CustomerController extends AbstractController
         $quotation = new Quotation() ;
 
         $quotationForm = $this->createForm(QuotationType::class, $quotation);
+
         $quotation->setCreatedAt(new \DateTime());
         $quotation->setStatus(Quotation::TOANSWER);
 
         $quotationForm->handleRequest($resquest);
 
-
         if ($quotationForm->isSubmitted() && $quotationForm->isValid())
         {
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($quotation);
 
@@ -57,14 +56,24 @@ class CustomerController extends AbstractController
 
             $quotationService->resultFormToBrushAndCode($quotation, $mail);
 
-            $this->redirect('https://www.projets-opc-nana.com/');
+            $this->redirectToRoute("confirmation");
 
         }
 
         return $this->render('customer/quotation.html.twig' , [
             'quotationForm' => $quotationForm->createView()
         ]);
+    }
+
+    /**
+     * @Route("/confirmation", name="confirmation")
+     */
+    public function confirmation()
+    {
+
+        return $this->render("customer/confirmation.html.twig");
 
     }
+
 
 }
