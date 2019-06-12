@@ -63,11 +63,6 @@ h4 {
     font-size: 42px;
 }
 
-span {
-    padding: 10px;
-    border-bottom: black solid;
-}
-
 em {
     font-family : Roboto, sans-serif;
     font-weight : 200;
@@ -77,7 +72,26 @@ em {
 
 hr {
     width: 50%;
-    color: #FFFFFF;
+    border: 2px solid #ffffff;
+}
+
+span.title_page {
+    padding: 10px;
+    border-bottom: black solid;
+}
+
+.pack {
+    font-family: BARON_NEUE_BLACK, sans-serif;
+    font-size: 48px;
+    text-align: center;
+    text-shadow: 19px 15px 4px #b1b1b1;
+}
+
+.label-form {
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    color: #757280;
+    font-size: 42px;
 }
 
 .norm {
@@ -117,6 +131,7 @@ hr {
     text-shadow: 19px 15px 10px  #404040;
     padding: 0;
     margin: 0;
+    border-bottom: none;
 }
 
 .col1 {
@@ -280,7 +295,6 @@ a div.card_choice:hover {
 .close img{
     /*transition: transform 300ms ease-out;*/
     transform: rotate(90deg);
-    margin: 20px 85px 40px 2px
 }
 .popup .close:hover {
     transition: transform 300ms ease-out;
@@ -298,8 +312,8 @@ a div.card_choice:hover {
 
 .menu{
     position:fixed;
-    margin-right: 45px;
-    margin-top: 50px;
+    right: 45px;
+    top: 50px;
 }
 
 .menu_2{
@@ -333,5 +347,3 @@ a div.card_choice:hover {
     text-shadow: 12px 13px 6px #000000;
     border-top: black solid;
 }
-
-

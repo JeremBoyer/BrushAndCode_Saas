@@ -8,27 +8,23 @@
 
         <h1 class="text-center">Inscription avant devis</h1>
         <div class="row">
-            <button class="col-md-4 btn-gradient">
+            <a class="col-md-4 text-center btn-gradient" href="{{ path('customer') }}">
 
-                <a href="{{ path('customer') }}">
-                    <p class="norm_white text-center">
+                <span  class="norm_white">
                         Connexion
-                    </p>
-                </a>
+                </span>
 
-            </button>
+            </a>
             <div class="col-md-4">
 
             </div>
-            <button class="col-md-4 btn-gradient">
+            <a class="col-md-4 text-center btn-gradient" href="{{ path('quotation') }}">
 
-                <a href="{{ path('quotation') }}">
-                    <p class="norm_white text-center">
+                <span class="norm_white">
                         Un devis?
-                    </p>
-                </a>
+                </span>
 
-            </button>
+            </a>
         </div>
 
         {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
@@ -63,20 +59,20 @@
                 }}) }}
             </h4>
 
-            <h4 class="py-4 my-4">
+            <div class="py-4 my-4 label-form">
                 {{ form_row(form.plainPassword, {
                     "options" : {
                         "attr" : {
                             "placeholder" : "Mot de passe"
                         }
                 }}) }}
-            </h4>
+            </div>
 
 
             <button type="submit" class="btn-gradient mb-4" id="_submit" name="_submit" value="{{ 'registration.submit'|trans }}">
-                <p class="text_btn">
+                <span class="text_btn">
                     Inscription
-                </p>
+                </span>
             </button>
 
         {{ form_end(form) }}

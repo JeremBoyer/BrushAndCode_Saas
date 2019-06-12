@@ -56,7 +56,7 @@ class CustomerController extends AbstractController
 
             $quotationService->resultFormToBrushAndCode($quotation, $mail);
 
-            $this->redirectToRoute("confirmation");
+            return $this->redirectToRoute("confirmation");
 
         }
 

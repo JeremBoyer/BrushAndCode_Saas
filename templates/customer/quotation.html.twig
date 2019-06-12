@@ -15,29 +15,24 @@
     </div>
 
     <div class="container">
-        <hr class="text-center my-4" size="3" color="white">
+        <hr class="text-center my-4" >
         <div class="row">
-            <button class="col-md-4 btn-gradient">
-
-                <a href="{{ path('customer') }}">
-                    <p class="norm_white text-center">
+            <a class="col-md-4 btn-gradient text-center" href="{{ path('customer') }}">
+                    <span class="norm_white text-white"  >
                         Pas encore inscrit?
-                    </p>
-                </a>
+                    </span>
+            </a>
 
-            </button>
             <div class="col-md-4">
 
             </div>
-            <button class="col-md-4 btn-gradient">
+            <a class="col-md-4 text-center btn-gradient" href="{{ path('customer') }}">
 
-                <a href="{{ path('customer') }}">
-                    <p class="norm_white text-center">
+                    <span class="norm_white text-center text-white">
                         Connexion
-                    </p>
-                </a>
+                    </span>
 
-            </button>
+            </a>
         </div>
         <p class="text-center">
             <em>
@@ -48,7 +43,7 @@
             </em>
         </p>
 
-        <hr class="text-center my-4" size="3" color="white">
+        <hr class="text-center my-4">
     </div>
 
     <div class="container">
@@ -59,13 +54,13 @@
 
             <div class="row ">
 
-                <h3 class="text-uppercase text-center">
+                <div class="pack text-uppercase text-center">
                         {{ form_label(package, {"label_attr" : {"class" : "text-center"}}) }}
 
                         {{ form_errors(package) }}
 
                         {{ form_widget(package) }}
-                </h3>
+                </div>
 
             </div>
             <div class="norm mb-3 pb-3">
@@ -77,15 +72,15 @@
 
 
 
-        <h4 class="my-4 py-4">
+        <div class="my-4 py-4 label-form">
             {{ form_label(quotationForm.email, "Email") }}
 
             {{ form_errors(quotationForm.email) }}
 
             {{ form_widget(quotationForm.email, {"attr" : {"placeholder" : "Renseignez votre Email"}}) }}
-        </h4>
+        </div>
 
-        <h4 class="py-4 my-4">
+        <div class="py-4 my-4 label-form">
             {{ form_label(quotationForm.comment, "Décrivez votre projet") }}
 
             {{ form_errors(quotationForm.comment) }}
@@ -94,14 +89,14 @@
                 "placeholder" : "N'hésitez pas à être précis",
                 "rows" : "10"
             }}) }}
-        </h4>
+        </div>
 
 
 
-        <button type="submit" class="btn-gradient mb-4 ">
-            <p class="text_btn">
+        <button type="submit" class="btn-gradient mb-4">
+            <span class="text_btn text-white">
                 Enregistrer
-            </p>
+            </span>
         </button>
 
         {{ form_end(quotationForm) }}
